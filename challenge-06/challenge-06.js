@@ -79,26 +79,28 @@ function convertToHex(color) {
     blue: "#0000ff"
   };
 
+  var hexa;
   switch (color) {
     case "black":
-      return "O hexadecimal para a cor " + color + " é " + colors.black + ".";
+      hexa = colors.black;
       break;
     case "white":
-      return "O hexadecimal para a cor " + color + " é " + colors.white + ".";
+      hexa = colors.white;
       break;
     case "red":
-      return "O hexadecimal para a cor " + color + " é " + colors.red + ".";
+      hexa = colors.red;
       break;
     case "green":
-      return "O hexadecimal para a cor " + color + " é " + colors.green + ".";
+      hexa = colors.green;
       break;
     case "blue":
-      return "O hexadecimal para a cor " + color + " é " + colors.blue + ".";
+      hexa = colors.blue;
       break;
     default:
       return "Não temos o equivalente hexadecimal para " + color + ".";
       break;
   }
+  return "O hexadecimal para a cor " + color + " é " + hexa + ".";
 }
 
 /*
