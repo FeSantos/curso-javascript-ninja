@@ -56,7 +56,9 @@
   Caso contrário, "false".
   - O desafio é fazer o retorno sem usar "if" ou "switch".
   */
-  // ?
+  function isOperatorValid(operator) {
+    return !!operation[operator];
+  }
 
   /*
   Agora vamos criar a calculadora.
@@ -69,8 +71,20 @@
   - Senão, retornar o método do objeto "operation" criado acima, baseado no
   operador passado para a função "calculator", e passando para esse método
   os dois parâmetros da função de retorno de "calculator".
-  */
-  // ?
+  // */
+  function calculator(operator) {
+    if (!isOperatorValid(operator)) {
+      return false;
+    }
+
+    return function(x, y) {
+      if (typeof x !== "number" || typeof y !== "number") {
+        return false;
+      }
+
+      return operation[operator](x, y);
+    };
+  }
 
   /*
   Crie uma função chamada "showOperationMessage" que recebe três parâmetros:
@@ -79,7 +93,13 @@
   'A operação [NUMBER1] [OPERATOR] [NUMBER2] =';
   Essa função mostrará a mensagem da operação que criaremos mais abaixo.
   */
-  // ?
+  function showOperationMessage(operator, number1, number2) {
+    return `A operação ${number1} ${operator} ${number2} = ${calculator(
+      operator,
+      number1,
+      number2
+    )}`;
+  }
 
   /*
   Crie uma função chamada "showErrorMessage" que recebe um parâmetro: o
@@ -87,7 +107,9 @@
   Essa função deverá retornar a frase:
   'Operação "[OPERATOR]" não permitida!'
   */
-  // ?
+  function showErrorMessage(operator) {
+    return `Operação ${operator} não permitida`;
+  }
 
   /*
   Nossa calculadora está pronta! Agora vamos testá-la:
@@ -95,7 +117,9 @@
   - Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
   "operationSignal", sem valor por enquanto.
   */
-  // ?
+  var number1 = 0;
+  var number2 = 0;
+  var operationSignal;
 
   /*
   PASSO 2:
@@ -103,7 +127,8 @@
   variável chamada "sum", que receba a função "calculator", passando por
   parâmetro a variável que recebeu o sinal da operação.
   */
-  // ?
+  var operationSignal = "+";
+  var sum = calculator(operationSignal);
 
   /*
   PASSO 3:
