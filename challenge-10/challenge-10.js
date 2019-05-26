@@ -72,6 +72,7 @@
   operador passado para a função "calculator", e passando para esse método
   os dois parâmetros da função de retorno de "calculator".
   // */
+
   function calculator(operator) {
     if (!isOperatorValid(operator)) {
       return false;
